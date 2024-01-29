@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1706514870924-1" author="Youcode (generated)">
+        <createTable tableName="reservation">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_reservation"/>
+            </column>
+            <column name="date_time" type="DATETIME"/>
+            <column name="team1_id" type="BIGINT"/>
+            <column name="team2_id" type="BIGINT"/>
+            <column name="stadium_id_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-2" author="Youcode (generated)">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_role"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-3" author="Youcode (generated)">
+        <createTable tableName="stadium">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_stadium"/>
+            </column>
+            <column name="stade_name" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="image" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-4" author="Youcode (generated)">
+        <createTable tableName="team">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_team"/>
+            </column>
+            <column name="team_name" type="VARCHAR(255)"/>
+            <column name="team_type" type="SMALLINT"/>
+            <column name="image" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-5" author="Youcode (generated)">
+        <createTable tableName="team_user_list">
+            <column name="team_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_list_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-6" author="Youcode (generated)">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="born_on" type="DATE"/>
+            <column name="gender" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-7" author="Youcode (generated)">
+        <createTable tableName="user_role">
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-8" author="Youcode (generated)">
+        <createTable tableName="user_team">
+            <column name="team_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1706514870924-9" author="Youcode (generated)">
+        <addUniqueConstraint columnNames="email" constraintName="uc_user_email" tableName="user"/>
+    </changeSet>
+    <changeSet id="1706514870924-10" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="stadium_id_id" baseTableName="reservation"
+                                 constraintName="FK_RESERVATION_ON_STADIUMID" referencedColumnNames="id"
+                                 referencedTableName="stadium"/>
+    </changeSet>
+    <changeSet id="1706514870924-11" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="team1_id" baseTableName="reservation"
+                                 constraintName="FK_RESERVATION_ON_TEAM1" referencedColumnNames="id"
+                                 referencedTableName="team"/>
+    </changeSet>
+    <changeSet id="1706514870924-12" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="team2_id" baseTableName="reservation"
+                                 constraintName="FK_RESERVATION_ON_TEAM2" referencedColumnNames="id"
+                                 referencedTableName="team"/>
+    </changeSet>
+    <changeSet id="1706514870924-13" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="team_user_list"
+                                 constraintName="fk_teauselis_on_team" referencedColumnNames="id"
+                                 referencedTableName="team"/>
+    </changeSet>
+    <changeSet id="1706514870924-14" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_list_id" baseTableName="team_user_list"
+                                 constraintName="fk_teauselis_on_user_app" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1706514870924-15" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role"
+                                 constraintName="fk_user_role_on_role" referencedColumnNames="id"
+                                 referencedTableName="role"/>
+    </changeSet>
+    <changeSet id="1706514870924-16" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role"
+                                 constraintName="fk_user_role_on_user_app" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+    <changeSet id="1706514870924-17" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="team_id" baseTableName="user_team"
+                                 constraintName="fk_user_team_on_team" referencedColumnNames="id"
+                                 referencedTableName="team"/>
+    </changeSet>
+    <changeSet id="1706514870924-18" author="Youcode (generated)">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_team"
+                                 constraintName="fk_user_team_on_user_app" referencedColumnNames="id"
+                                 referencedTableName="user"/>
+    </changeSet>
+
+</databaseChangeLog>
