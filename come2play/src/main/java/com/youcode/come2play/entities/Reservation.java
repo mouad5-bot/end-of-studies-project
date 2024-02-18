@@ -18,8 +18,11 @@ public class Reservation {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "date_time")
-    private LocalDateTime dateTime;
+    @Column(name = "reserved_at")
+    private LocalDateTime reservedAt;
+
+    @Column(name = "date_of_match")
+    private LocalDateTime dateOfMatch;
 
     @ManyToOne
     private Team team1;
@@ -28,5 +31,6 @@ public class Reservation {
     private Team team2;
 
     @ManyToOne
+    @JoinColumn(name = "stadium_id")
     private Stadium stadiumId;
 }
