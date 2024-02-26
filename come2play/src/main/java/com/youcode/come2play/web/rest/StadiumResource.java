@@ -1,15 +1,11 @@
 package com.youcode.come2play.web.rest;
-
-import com.youcode.come2play.entities.Reservation;
 import com.youcode.come2play.entities.Stadium;
-import com.youcode.come2play.entities.Team;
 import com.youcode.come2play.service.StadiumService;
 import lombok.RequiredArgsConstructor;
-import org.springdoc.api.annotations.ParameterObject;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @RestController
@@ -17,22 +13,25 @@ import java.util.List;
 @RequestMapping("api/v1/stadium")
 public class StadiumResource {
     private final StadiumService service;
-    @PostMapping
+
+    @PostMapping("/add")
     public ResponseEntity<Stadium> add(@RequestBody Stadium stadium) throws Exception {
-        return ResponseEntity.ok( service.save(stadium));
+        return ResponseEntity.ok(service.save(stadium));
     }
-    @PostMapping
-    public ResponseEntity<Stadium> edit(@RequestBody Long id) throws Exception {
-        return ResponseEntity.ok( service.edit(id));
+
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<Stadium> edit(@PathVariable Long id) throws Exception {
+        return ResponseEntity.ok(service.edit(id));
     }
-    @GetMapping
-    public List<Stadium> getAll(@ParameterObject Pageable pageable){
-        return service.findAll((org.springframework.data.domain.Pageable) pageable);
+
+    @GetMapping("/getAll")
+    public List<Stadium> getAll(Pageable pageable) {
+        return service.findAll(pageable);
     }
-    @PostMapping
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) throws Exception {
         service.delete(id);
         return ResponseEntity.ok("The stadium is deleted successfully");
     }
-
 }

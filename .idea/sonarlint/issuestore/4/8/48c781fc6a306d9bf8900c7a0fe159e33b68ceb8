@@ -1,0 +1,10 @@
+
+a	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ûàßz8ÌÇ–œÙ1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ÃŞ¶¯ÿÿÿÿÿ8ÌÇ–œÙ1
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(¦à£ƒıÿÿÿÿ8Û—œÙ1
+i
+java:S1128"LRemove this unused import 'com.youcode.come2play.repository.TeamRepository'.(Ì¤Œ†8›¢™œÙ1
+`
+java:S1128"CRemove this unused import 'org.springframework.stereotype.Service'.(¼º¡Ú8íÀØŒÛ1
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8œ¢™œÙ1

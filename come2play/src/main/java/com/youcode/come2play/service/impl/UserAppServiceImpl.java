@@ -24,11 +24,11 @@ public class UserAppServiceImpl implements UserAppService {
 
     @Override
     public void delete(Long id) throws Exception {
-
+         //repository.delete
     }
 
     @Override
     public List<UserApp> findAll(Pageable pageable) {
-        return null;
+        return repository.findAll(pageable).toList();
     }
 }
