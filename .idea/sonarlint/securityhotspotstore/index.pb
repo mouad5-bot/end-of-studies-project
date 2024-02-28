@@ -57,3 +57,9 @@ E
 .jpb/jpb-settings.xml,4\4\44d3869e4ab8f5a6660709b629065ab6e5795b01
 x
 Hcome2play/src/main/java/com/youcode/come2play/web/rest/UserResource.java,5\0\50a44f16bb03eaa6d29d56ce9069f787553c8853
+á
+Wcome2play/src/main/java/com/youcode/come2play/service/dtos/dto/response/StadiumDto.java,0\0\0053c722f3517b05d6c0e25e1204711bebfd3514
+Ñ
+Tcome2play/src/main/java/com/youcode/come2play/service/dtos/mapper/StadiumMapper.java,1\6\1642323f42f902f7dd5135d65c0bad208ea9895d
+è
+_come2play/src/main/java/com/youcode/come2play/service/dtos/dto/response/StadiumDtoResponse.java,7\6\76dace9141bf7dea0d07b4b7ffe628a27d83f7da

@@ -1,10 +1,9 @@
 package com.youcode.come2play.entities;
 
 import com.youcode.come2play.entities.enums.TeamType;
-import jakarta.persistence.*;
 import lombok.*;
-import org.apache.catalina.User;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity

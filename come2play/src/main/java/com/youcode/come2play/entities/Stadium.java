@@ -1,9 +1,8 @@
 package com.youcode.come2play.entities;
 
-import jakarta.persistence.*;
 import lombok.*;
-import org.w3c.dom.stylesheets.LinkStyle;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity

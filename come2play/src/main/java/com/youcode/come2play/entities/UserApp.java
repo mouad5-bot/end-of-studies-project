@@ -1,8 +1,8 @@
 package com.youcode.come2play.entities;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
