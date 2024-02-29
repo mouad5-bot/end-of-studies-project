@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -28,6 +30,13 @@ public class SignUpRequest {
     @NotBlank(message = "Password cannot be blank")
     @Min(value = 6,message = "Password should be at least 6 characters")
     private String password;
+
+    @NotNull(message = "Date of birthday cannot be null")
+    private LocalDate bornOn;
+
+
+    @NotBlank(message = "Gender cannot be blank")
+    private String gender;
 
     private List<String> authorities;
 }

@@ -12,6 +12,7 @@ public interface RoleService {
     Role save(Role role) throws ValidationException;
     Optional<Role> findByName(String name) ;
     List<Role> findAll(Pageable pageable);
+    List<Role> getALlRoles();
     void delete(Long id);
 
     Role findById(Long id);

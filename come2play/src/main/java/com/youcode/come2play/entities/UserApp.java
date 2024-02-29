@@ -1,5 +1,6 @@
 package com.youcode.come2play.entities;
 
+import com.youcode.come2play.entities.enums.Gender;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.GrantedAuthority;
@@ -40,8 +41,8 @@ public class UserApp implements UserDetails {
     @Column(name = "bornOn")
     private LocalDate bornOn;
 
-    @Column(name = "gender")
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
 
 

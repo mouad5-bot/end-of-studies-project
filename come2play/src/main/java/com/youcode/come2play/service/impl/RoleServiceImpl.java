@@ -38,6 +38,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public List<Role> getALlRoles() {
+        return roleRepository.findAll();
+    }
+
+    @Override
     public void delete(Long id) {
         Optional<Role> role = roleRepository.findById(id);
         if(role.isPresent())

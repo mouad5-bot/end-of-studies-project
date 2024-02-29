@@ -22,8 +22,9 @@ public class Team {
     @Column(name = "team_name")
     private String teamtName;
 
-    @Column(name = "team_type")
+    @Enumerated(EnumType.STRING)
     private TeamType teamType;
+
 
     @Column(name = "image")
     private String  image;

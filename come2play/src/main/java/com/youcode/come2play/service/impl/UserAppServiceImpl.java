@@ -14,7 +14,10 @@ import com.youcode.come2play.security.SecurityUtils;
 import com.youcode.come2play.security.AuthoritiesConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.validation.ValidationException;
@@ -60,17 +63,17 @@ public class UserAppServiceImpl implements UserAppService {
 
     @Override
     public List<UserApp> findAll(Pageable pageable) {
-        return null;
+        return userRepository.findAll(pageable).toList();
     }
 
     @Override
     public Optional<UserApp> findById(Long id) {
-        return Optional.empty();
+        return userRepository.findById(id);
     }
 
     @Override
     public Optional<UserApp> findByEmail(String email) {
-        return Optional.empty();
+        return userRepository.findByEmail(email);
     }
 
     @Override
@@ -127,41 +130,49 @@ public class UserAppServiceImpl implements UserAppService {
 
     @Override
     public List<String> getAuthorities() {
-        return null;
+        return roleService.getALlRoles().stream().map(Role::getName).toList();
     }
 
     @Override
     public UserDetailsService userDetailsService() {
-        return null;
+        return username -> userRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND));
     }
 
     @Override
     public UserApp findByUsername(String username) {
-        return null;
+        return userRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException(USER_NOT_FOUND));
     }
 
     @Override
     public List<String> getMyAuthorities() {
-        return null;
+        return getCurrentUser()
+                .getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .toList();
     }
 
     @Override
     public UserApp getCurrentUser() {
-        return null;
+        String currentUserLogin = SecurityUtils.getCurrentUserEmail();
+        if(currentUserLogin == null)
+            throw new BadCredentialsException(USER_NOT_FOUND);
+        return this.findByUsername(currentUserLogin);
     }
 
     @Override
     public void softDelete(Long id) {
-
+        userRepository.softDelete(id);
     }
 
     @Override
     public void forceDelete(Long id) {
-
+        userRepository.forceDelete(id);
     }
 
     @Override
     public void delete(Long id) {
-
+        userRepository.deleteById(id);
     }
 }
