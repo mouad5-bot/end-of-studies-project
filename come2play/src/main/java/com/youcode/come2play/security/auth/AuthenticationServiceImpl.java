@@ -30,13 +30,15 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final RoleRepository roleRepository;
     @Override
     public void signup(SignUpRequest request) throws ValidationException {
-        Role role = roleRepository.findByName("ROLE_MEMBER")
-                .orElseGet(() -> roleRepository.save(Role.builder().name("ROLE_MEMBER").build()));
+        Role role = roleRepository.findByName("ROLE_PLAYER")
+                .orElseGet(() -> roleRepository.save(Role.builder().name("ROLE_PLAYER").build()));
         UserApp user = UserApp.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
+                .gender(request.getGender())
+                .bornOn(request.getBornOn())
                 .roleList(List.of(role))
                 .accountNonLocked(false)
                 .accountNonExpired(true)

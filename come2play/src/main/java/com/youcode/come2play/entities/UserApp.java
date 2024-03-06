@@ -44,8 +44,6 @@ public class UserApp implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-
-
     private boolean accountNonExpired = false;
 
     private boolean accountNonLocked = false;

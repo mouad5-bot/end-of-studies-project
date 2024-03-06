@@ -62,8 +62,6 @@ Ccome2play/src/main/java/com/youcode/come2play/config/AppConfig.java,2\b\2b2dc7
 x
 Hcome2play/src/main/java/com/youcode/come2play/config/SecurityConfig.java,2\2\22a61b99227fabb8608f2e3b34bfc33b2dff17d4
 Å
-Qcome2play/src/main/java/com/youcode/come2play/security/AuthenticationService.java,2\b\2b0a4b3101d49ce756eaf97f9e401313191ed92c
-Å
 Qcome2play/src/main/java/com/youcode/come2play/dtos/dto/request/SignInRequest.java,2\e\2ee87d9289733a1f35e7e740733bcbc67febc37f
 Å
 Qcome2play/src/main/java/com/youcode/come2play/dtos/dto/request/SignUpRequest.java,e\c\ec4693447d265a4444b7a91b8823146572bd9e9d
@@ -107,8 +105,6 @@ Zcome2play/src/main/java/com/youcode/come2play/web/exception/ResourceNotFoundExc
 Vcome2play/src/main/java/com/youcode/come2play/web/exception/UnauthorizedException.java,7\6\76e44ea3dc047846a2eee85268e98ac51afc8f60
 Ä
 Pcome2play/src/main/java/com/youcode/come2play/security/AuthoritiesConstants.java,7\1\71d01b7c2866c741b20be53b48db87e21e0bebf3
-â
-Ycome2play/src/main/java/com/youcode/come2play/security/auth/AuthenticationController.java,3\e\3ea034fdc181069c6d38c3f9b27bbdda0b68aa23
 Ñ
 Tcome2play/src/main/java/com/youcode/come2play/dtos/dto/response/UserResponseDto.java,f\8\f8ca5fc772b055bb3c1136dbd9dd5d298c309e21
 {
@@ -127,3 +123,7 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 x
 Hcome2play/src/main/java/com/youcode/come2play/entities/enums/Gender.java,3\a\3a271e439019faff622da95d80b82af922f5a2ff
+á
+Wcome2play/src/main/java/com/youcode/come2play/security/auth/AuthenticationResource.java,b\b\bbb3548f22b0f0f12b594f8b5965aad9d87da79e
+w
+Gcome2play/src/main/java/com/youcode/come2play/service/impl/OpenApi.java,b\1\b1aea465429936d8825f85a4e693719d69e64ee8

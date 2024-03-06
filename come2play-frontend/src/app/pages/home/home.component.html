@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-md navbar-light shadow-sm d-flex justify-content-between">
+  <div class="container">
+  <a class="navbar-brand mt-2" href="#">
+    come2play
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" [attr.aria-label]="ariaLabel">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto ms-auto">
+      <li class="nav-item me-4">
+        <a class="nav-link" routerLink="/">
+           Home
+        </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" routerLink="/user/list">
+           Matches
+        </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" routerLink="/competition/list">
+           Stadiums
+        </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" routerLink="/competition/list">
+           About Us
+        </a>
+      </li>
+      <li class="nav-item me-4">
+        <a class="nav-link" routerLink="/competition/list">
+           Contact Us
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item" >
+        <a class="btn btn-light text-black" routerLink="login">Login</a>
+      </li>
+      <li class="nav-item" >
+        <a class="btn btn-dark text-white" routerLink="register" >Register</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+<div class="container ">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center align-items-center">
+      <main role="main" class="col-md-9 mt-2 ml-sm-auto col-lg-10 px-4">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+</div>

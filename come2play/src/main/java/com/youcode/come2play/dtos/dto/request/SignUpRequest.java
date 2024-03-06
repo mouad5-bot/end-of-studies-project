@@ -1,5 +1,6 @@
 package com.youcode.come2play.dtos.dto.request;
 
+import com.youcode.come2play.entities.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +11,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @Builder
@@ -28,15 +28,14 @@ public class SignUpRequest {
     private String email;
 
     @NotBlank(message = "Password cannot be blank")
-    @Min(value = 6,message = "Password should be at least 6 characters")
+    //@Min(value = 6,message = "Password should be at least 6 characters")
     private String password;
 
     @NotNull(message = "Date of birthday cannot be null")
     private LocalDate bornOn;
 
+    @NotNull(message = "Gender cannot be null")
+    private Gender gender;
 
-    @NotBlank(message = "Gender cannot be blank")
-    private String gender;
-
-    private List<String> authorities;
+    //private List<String> authorities;
 }

@@ -41,18 +41,10 @@ public class UserAppServiceImpl implements UserAppService {
         findByEmail(user.getEmail()).ifPresent(u -> {
             throw new EmailAlreadyExistException();
         });
-        if( SecurityUtils.isAuthenticated() &&
-                SecurityUtils.hasCurrentUserNoneOfAuthorities(
-                        AuthoritiesConstants.ROLE_STADIUM_MANAGER,
-                        AuthoritiesConstants.ROLE_ADMIN,
-                        AuthoritiesConstants.ROLE_PLAYER
-                )
-        ) {
-            user.setAccountNonLocked(true);
-            user.setAccountNonExpired(true);
-            user.setCredentialsNonExpired(true);
-            user.setEnabled(true);
-        }
+        user.setAccountNonLocked(true);
+        user.setAccountNonExpired(true);
+        user.setCredentialsNonExpired(true);
+        user.setEnabled(true);
         return userRepository.save(user);
     }
 

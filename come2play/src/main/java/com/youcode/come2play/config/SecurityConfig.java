@@ -42,6 +42,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers("/api/v1/auth/**").permitAll()
+                .antMatchers("/api/open").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
