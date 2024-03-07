@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="wrapper" style="background-image: url('../../../../../assets/login.jpg');">
+  <button class="button1 button1" id="loginInRegister" routerLink="/register">Register</button>
+
+  <div class="inner">
+    <div class="image-holder">
+      <img src="assets/login.jpg" alt="Log In">
+    </div>
+    <form [formGroup]="form"  (ngSubmit)="login()">
+      <h3 class="mt-5">Log In Form</h3>
+      <div class="form-wrapper ">
+        <input type="text" placeholder="Email Address" class="form-control" name="email" formControlName="email" required autocomplete="email" autofocus>
+        <i class="zmdi zmdi-email"></i>
+      </div>
+      <div class="form-wrapper">
+        <input type="password" placeholder="Password" class="form-control" name="password" formControlName="password" required autocomplete="password">
+        <i class="zmdi zmdi-lock"></i>
+      </div>
+      <button type="submit">Log In
+        <i class="zmdi zmdi-arrow-right"></i>
+      </button>
+    </form>
+  </div>
+</div>

@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {MatSelectModule} from "@angular/material/select";
 import { LoginComponent } from './pages/account/auth/login/login.component';
 import { RegisterComponent } from './pages/account/auth/register/register.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { RegisterComponent } from './pages/account/auth/register/register.compon
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,

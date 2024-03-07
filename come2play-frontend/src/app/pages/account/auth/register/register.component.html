@@ -5,38 +5,37 @@
     <div class="image-holder">
       <img src="assets/register.jpg" alt="register">
     </div>
-    <form action="">
+    <form [formGroup]="form"  (ngSubmit)="register()">
       <h3>Registration Form</h3>
       <div class="form-group">
-        <input type="text" placeholder="First Name" class="form-control">
-        <input type="text" placeholder="Last Name" class="form-control">
+        <input type="text" placeholder="First Name" name="fname" formControlName="fname" class="form-control">
+        <input type="text" placeholder="Last Name"  name="lname" formControlName="lname" class="form-control">
       </div>
       <div class="form-wrapper">
-        <input type="text" placeholder="Username" class="form-control">
-        <i class="zmdi zmdi-account"></i>
-      </div>
-      <div class="form-wrapper">
-        <input type="text" placeholder="Email Address" class="form-control">
+        <input type="text" placeholder="Email Address" name="email" formControlName="email" class="form-control">
         <i class="zmdi zmdi-email"></i>
       </div>
       <div class="form-wrapper">
-        <select name="" id="" class="form-control">
+        <label>Birth Day</label>
+        <input type="date" placeholder="Birth Day" name="bornOn" formControlName="bornOn" class="form-control">
+      </div>
+      <div class="form-wrapper">
+        <select name="gender" formControlName="gender" class="form-control">
           <option value="" disabled selected>Gender</option>
-          <option value="male">Male</option>
-          <option value="femal">Female</option>
-          <option value="other">Other</option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
         </select>
         <i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
       </div>
       <div class="form-wrapper">
-        <input type="password" placeholder="Password" class="form-control">
+        <input type="password" placeholder="Password" name="password" formControlName="password"  class="form-control">
         <i class="zmdi zmdi-lock"></i>
       </div>
       <div class="form-wrapper">
-        <input type="password" placeholder="Confirm Password" class="form-control">
+        <input type="password" placeholder="Confirm Password" name="confirmPassword" formControlName="confirmPassword"  class="form-control">
         <i class="zmdi zmdi-lock"></i>
       </div>
-      <button>Register
+      <button type="submit">Register
         <i class="zmdi zmdi-arrow-right"></i>
       </button>
     </form>
