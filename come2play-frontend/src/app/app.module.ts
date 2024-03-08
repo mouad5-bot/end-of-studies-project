@@ -4,7 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +17,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { LoginComponent } from './pages/account/auth/login/login.component';
 import { RegisterComponent } from './pages/account/auth/register/register.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import {TokenInterceptor} from "./core/token.interceptor";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     NgOptimizedImage
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
