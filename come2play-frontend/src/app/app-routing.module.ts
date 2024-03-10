@@ -5,6 +5,7 @@ import {LoginComponent} from "./pages/account/auth/login/login.component";
 import {RegisterComponent} from "./pages/account/auth/register/register.component";
 import {LandingPageComponent} from "./components/landing-page/landing-page.component";
 import {AuthGuard} from "./core/guards/auth.guard";
+import {ProfileComponent} from "./pages/account/profile/profile.component";
 const routes: Routes = [
   { path:"login", component:LoginComponent},
   { path:"register", component:RegisterComponent},
@@ -13,7 +14,9 @@ const routes: Routes = [
     component: HomeComponent,
     // canActivate: [AuthGuard],
     children: [
-      { path: "landingPage", component:LandingPageComponent}
+      { path: "landingPage", component:LandingPageComponent},
+      { path: "profile", component:ProfileComponent},
+
     ]
   }
 ];

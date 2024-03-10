@@ -127,3 +127,15 @@ Hcome2play/src/main/java/com/youcode/come2play/entities/enums/Gender.java,3\a\3
 Wcome2play/src/main/java/com/youcode/come2play/security/auth/AuthenticationResource.java,b\b\bbb3548f22b0f0f12b594f8b5965aad9d87da79e
 w
 Gcome2play/src/main/java/com/youcode/come2play/service/impl/OpenApi.java,b\1\b1aea465429936d8825f85a4e693719d69e64ee8
+F
+come2play/compose.yaml,1\9\1946408fc0152caad1098728522aa82e392bc8dc
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+O
+come2play-frontend/angular.json,a\3\a396938d2576e0a0f1f5739dfb66bbcb1e073304
+M
+come2play-frontend/Dockerfile,6\f\6f6ba511126e1c8100068a656a1573a132ceb1f9
+R
+"come2play/sonar-project.properties,5\7\574d8db359aee8c58879060765a068d3c723a030
+D
+come2play/Dockerfile,1\0\10827ca9a6961bf5b46525024a87905f2d000c9d
