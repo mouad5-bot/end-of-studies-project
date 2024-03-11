@@ -1,6 +1,7 @@
 package com.youcode.come2play.entities;
 
 import lombok.*;
+import com.youcode.come2play.entities.enums.TeamType;
 
 import javax.persistence.*;
 import java.util.List;
@@ -27,6 +28,12 @@ public class Stadium {
 
     @Column(name = "image")
     private String image;
+
+    @Enumerated(EnumType.STRING)
+    private TeamType teamType;
+
+    @Column(name = "price")
+    private double price;
 
     @OneToMany(mappedBy = "stadiumId")
     private List<Reservation> reservationList;

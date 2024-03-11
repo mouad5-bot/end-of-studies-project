@@ -25,7 +25,6 @@ public class Team {
     @Enumerated(EnumType.STRING)
     private TeamType teamType;
 
-
     @Column(name = "image")
     private String  image;
 

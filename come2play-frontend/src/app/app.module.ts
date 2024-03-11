@@ -19,6 +19,7 @@ import { RegisterComponent } from './pages/account/auth/register/register.compon
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import {TokenInterceptor} from "./core/token.interceptor";
 import { ProfileComponent } from './pages/account/profile/profile.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ProfileComponent } from './pages/account/profile/profile.component';
     RegisterComponent,
     LandingPageComponent,
     ProfileComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,

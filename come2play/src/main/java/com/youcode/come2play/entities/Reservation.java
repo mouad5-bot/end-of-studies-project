@@ -1,5 +1,8 @@
 package com.youcode.come2play.entities;
 
+import com.youcode.come2play.entities.enums.RequestForTeam;
+import com.youcode.come2play.entities.enums.Status;
+import com.youcode.come2play.entities.enums.TeamType;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,6 +26,15 @@ public class Reservation {
 
     @Column(name = "date_of_match")
     private LocalDateTime dateOfMatch;
+
+    @Column(name = "number_phone")
+    private String numberPhone;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Enumerated(EnumType.STRING)
+    private RequestForTeam requestForTeam;
 
     @ManyToOne
     private Team team1;
