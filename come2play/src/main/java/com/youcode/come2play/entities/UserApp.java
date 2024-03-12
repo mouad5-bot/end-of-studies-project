@@ -59,7 +59,7 @@ public class UserApp implements UserDetails {
 
     private LocalDateTime deletedAt;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),

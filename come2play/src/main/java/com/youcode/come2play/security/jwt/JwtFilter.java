@@ -38,9 +38,7 @@ public class JwtFilter extends OncePerRequestFilter {
         final String jwt;
         final String userEmail;
 
-        if (
-                StringUtils.isEmpty(authHeader) ||
-                        !StringUtils.startsWithIgnoreCase(authHeader, "Bearer ")) {
+        if ( StringUtils.isEmpty(authHeader) || !StringUtils.startsWithIgnoreCase(authHeader, "Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
@@ -68,9 +66,8 @@ public class JwtFilter extends OncePerRequestFilter {
         }catch (Exception e) {
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             logger.error("Unauthorized error: {}");
-            response.getWriter().write(new CustomError("error", "Error has been occurred").toString());
+            response.getWriter().write(new CustomError("error", "Error occurred").toString());
             response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         }
     }
-
 }
