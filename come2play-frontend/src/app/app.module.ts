@@ -20,6 +20,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import {TokenInterceptor} from "./core/token.interceptor";
 import { ProfileComponent } from './pages/account/profile/profile.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { StadeComponent } from './components/stade/stade.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
     LandingPageComponent,
     ProfileComponent,
     ReservationComponent,
+    StadeComponent,
   ],
   imports: [
     BrowserModule,

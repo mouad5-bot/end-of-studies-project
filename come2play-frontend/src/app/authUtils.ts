@@ -18,7 +18,6 @@ class AuthUtils {
 
   setLoggedCredentials(user: UserClass, jwtAuthenticationResponse: JwtAuthenticationResponse) {
     if (user)
-      console.log("han user agnso n util" + user);
     localStorage.setItem('authUser', JSON.stringify(user));
     if (jwtAuthenticationResponse) {
       this.setAccessToken(jwtAuthenticationResponse.accessToken);
@@ -39,7 +38,6 @@ class AuthUtils {
    */
   getAuthenticatedUser(): UserClass | null {
     const authUserString = localStorage.getItem('authUser');
-    console.log(authUserString)
     if (!authUserString) {
       return null;
     }
