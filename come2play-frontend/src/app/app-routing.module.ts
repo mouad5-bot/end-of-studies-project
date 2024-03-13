@@ -8,6 +8,10 @@ import {AuthGuard} from "./core/guards/auth.guard";
 import {ProfileComponent} from "./pages/account/profile/profile.component";
 import {ReservationComponent} from "./components/reservation/reservation.component";
 import {StadeComponent} from "./components/stade/stade.component";
+import {ForCompleteTeamComponent} from "./components/reservation/for-complete-team/for-complete-team.component";
+import {
+  ForNonCompleteTeamComponent
+} from "./components/reservation/for-non-complete-team/for-non-complete-team.component";
 const routes: Routes = [
   { path:"login", component:LoginComponent},
   { path:"register", component:RegisterComponent},
@@ -21,6 +25,8 @@ const routes: Routes = [
       { path: "profile", component:ProfileComponent},
       { path: "reservation", component:ReservationComponent},
       { path: "stadium", component:StadeComponent},
+      { path: "complete", component:ForCompleteTeamComponent},
+      { path: "nonComplete", component:ForNonCompleteTeamComponent},
 
     ]
   }

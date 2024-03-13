@@ -21,6 +21,8 @@ import {TokenInterceptor} from "./core/token.interceptor";
 import { ProfileComponent } from './pages/account/profile/profile.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { StadeComponent } from './components/stade/stade.component';
+import { ForCompleteTeamComponent } from './components/reservation/for-complete-team/for-complete-team.component';
+import { ForNonCompleteTeamComponent } from './components/reservation/for-non-complete-team/for-non-complete-team.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { StadeComponent } from './components/stade/stade.component';
     ProfileComponent,
     ReservationComponent,
     StadeComponent,
+    ForCompleteTeamComponent,
+    ForNonCompleteTeamComponent,
   ],
   imports: [
     BrowserModule,

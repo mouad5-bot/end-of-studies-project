@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Stadium List</h2>
+  <div class="row">
+
+    <div class="col-md-4 mb-3" *ngFor="let stadium of stadiumList">
+      <div class="card">
+        <img [src]="stadium.image" class="card-img-top" alt="Stadium Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ stadium.stadeName }}</h5>
+          <p class="card-text">{{ stadium.price }} $</p>
+          <p class="card-text">{{ stadium.teamType }}</p>
+            <a routerLink="/complete" class="btn btn-success border-dark "> Reserve </a>
+            <a routerLink="/nonComplete" class="btn btn-light float-end "> Details </a>
+
+<!--            <a routerLink="/complete" class="btn btn-light border-dark "> Two Teams </a>-->
+<!--            <a routerLink="/nonComplete" class="btn btn-dark float-end "> One Team </a>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
