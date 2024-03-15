@@ -1,4 +1,4 @@
-import {UserClass} from "./models/user";
+import {UserClass} from "./models/entities/user";
 import {JwtAuthenticationResponse} from "./models/jwt-auth-response";
 
 class AuthUtils {

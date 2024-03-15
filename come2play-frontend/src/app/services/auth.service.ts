@@ -5,7 +5,7 @@ import {map, Observable} from "rxjs";
 import {environment} from "../models/environment";
 import {JwtAuthenticationResponse} from "../models/jwt-auth-response";
 import {authUtils} from "../authUtils";
-import {UserClass} from "../models/user";
+import {UserClass} from "../models/entities/user";
 
 @Injectable({
   providedIn: 'root'

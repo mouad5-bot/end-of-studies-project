@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {IStadium} from "../../models/stadium";
+import {IStadium} from "../../models/entities/stadium";
 import {StadiumService} from "../../services/stadium.service";
 import {Observable} from "rxjs";
 

@@ -3,7 +3,7 @@ import {environment} from "../models/environment";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {map, Observable} from "rxjs";
-import {IStadium, StadiumClass} from "../models/stadium";
+import {IStadium, StadiumClass} from "../models/entities/stadium";
 import {ApiResponseModel} from "../core/api-response.model";
 
 @Injectable({
