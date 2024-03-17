@@ -14,4 +14,5 @@ public interface TeamService {
     Team edit(Long id) throws Exception;
     void delete(Long id) throws Exception;
     List<Team> findAll(Pageable pageable);
+    List<Team> findByCreatedBy(Long id);
 }

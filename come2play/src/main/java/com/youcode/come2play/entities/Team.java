@@ -4,6 +4,7 @@ import com.youcode.come2play.entities.enums.TeamType;
 import lombok.*;
 
 import javax.persistence.*;
+import java.sql.DataTruncation;
 import java.util.List;
 
 @Entity
@@ -20,13 +21,16 @@ public class Team {
     private Long id;
 
     @Column(name = "team_name")
-    private String teamtName;
+    private String teamName;
 
     @Enumerated(EnumType.STRING)
     private TeamType teamType;
 
     @Column(name = "image")
-    private String  image;
+    private String TeamImage;
+
+    @Column(name = "created_by")
+    private Long createdBy;
 
     @ManyToMany
     private List<UserApp> userList;
