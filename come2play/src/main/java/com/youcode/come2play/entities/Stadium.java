@@ -27,7 +27,7 @@ public class Stadium {
     private String city;
 
     @Column(name = "image")
-    private String image;
+    private String StadiumImage;
 
     @Enumerated(EnumType.STRING)
     private TeamType teamType;

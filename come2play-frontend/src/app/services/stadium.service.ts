@@ -16,7 +16,14 @@ export class StadiumService {
   constructor(private http: HttpClient, private router : Router) { }
 
   public getAllStadiums(): Observable<IStadium[]> {
-    return this.http.get<IStadium[]>(this.apiUrl + "getAll");
+    return this.http.get<IStadium[]>(this.apiUrl + "getAll").pipe(
+      map(stadiums => {
+        return stadiums.map(stadium => {
+          stadium.stadiumImage = 'data:image/png;base64,' + stadium.stadiumImage;
+          return stadium;
+        });
+      })
+    );
   }
 
   public addStadium(stadium: StadiumClass): Observable<IStadium>{
