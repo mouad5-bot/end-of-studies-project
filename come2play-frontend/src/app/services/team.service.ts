@@ -16,9 +16,12 @@ export class TeamService {
   public getAllTeams(): Observable<ITeam[]> {
     return this.http.get<ITeam[]>(this.apiUrl + "getAll");
   }
+  public getMyTeams(): Observable<ITeam[]> {
+    return this.http.get<ITeam[]>(this.apiUrl + "myTeams");
+  }
 
-  public addTeam(team: TeamClass): Observable<ITeam>{
-    return this.http.post(this.apiUrl + "add", team);
+  public addTeam(formData: FormData): Observable<ITeam>{
+    return this.http.post(this.apiUrl + "add", formData);
   }
 
   public getPaginatedTeams(page: number, size: number): Observable<ITeam[]> {

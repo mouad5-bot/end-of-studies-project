@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3">
               <label class="form-label">image <span class="text-danger">*</span></label>
-              <input type="file" class="form-control" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+              <input type="file" class="form-control" formControlName="file" (change)="saveImage($event)" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
             </div>
           </div>
           <div class="mt-5">
