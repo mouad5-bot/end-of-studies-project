@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
@@ -14,19 +16,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StadiumResponseDto {
-
     private Long id;
 
+    @NotBlank(message = "the stadium name must be not blank")
     private String stadeName;
 
+    @NotBlank(message = "the stadium name must be not blank")
     private String city;
 
     private byte[] StadiumImage;
 
+    @NotNull(message = "The team type must not be null")
     private TeamType teamType;
 
+    @NotNull(message = "price must be not null")
     private double price;
 
     private List<Reservation> reservationList;
-
 }
