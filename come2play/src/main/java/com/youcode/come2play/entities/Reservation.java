@@ -2,7 +2,6 @@ package com.youcode.come2play.entities;
 
 import com.youcode.come2play.entities.enums.RequestForTeam;
 import com.youcode.come2play.entities.enums.Status;
-import com.youcode.come2play.entities.enums.TeamType;
 import lombok.*;
 
 import javax.persistence.*;

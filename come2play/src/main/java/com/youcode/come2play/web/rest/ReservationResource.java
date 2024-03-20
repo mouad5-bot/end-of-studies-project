@@ -1,23 +1,34 @@
 package com.youcode.come2play.web.rest;
 
+import com.youcode.come2play.dtos.dto.request.ReservationDto;
+import com.youcode.come2play.dtos.dto.request.ReservationRequestDto;
 import com.youcode.come2play.entities.Reservation;
+import com.youcode.come2play.entities.Team;
+import com.youcode.come2play.entities.enums.RequestForTeam;
+import com.youcode.come2play.entities.enums.Status;
 import com.youcode.come2play.service.ReservationService;
+import com.youcode.come2play.service.TeamService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("api/v1/reservation")
 public class ReservationResource {
     private final ReservationService service;
+    private final TeamService teamService;
 
     @PostMapping("/add")
-    public ResponseEntity<Reservation> add(@RequestBody Reservation reservation) throws Exception {
-        Reservation savedReservation = service.save(reservation);
+    public ResponseEntity<ReservationDto> add(@RequestBody ReservationDto reservation) throws Exception {
+
+        ReservationDto savedReservation = service.save(reservation);
         if (savedReservation == null) {
             return ResponseEntity.badRequest().body(reservation);
         } else {

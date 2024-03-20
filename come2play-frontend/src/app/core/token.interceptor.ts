@@ -21,7 +21,6 @@ export class TokenInterceptor implements HttpInterceptor {
 
   injectAccessToken(request: HttpRequest<any>) {
     const accessToken = authUtils.currentAccessToken();
-    console.log(accessToken);
     if (accessToken) {
       const newReq = request.clone({
         setHeaders: {

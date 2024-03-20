@@ -5,30 +5,26 @@
   <div class="card-body">
     <div class="row d-flex justify-content-center">
       <div class="col-6">
-        <form method="POST" (ngSubmit)="submitReservation()" enctype="multipart/form-data">
+        <form (ngSubmit)="submitReservation()">
           <div class="modal-body">
             <div class="mb-3">
               <label class="form-label">Date Of Match<span class="text-danger">*</span></label>
-              <input  type="date" class="form-control" name="dateOfMatch"/>
+              <input type="datetime-local" [(ngModel)]="dateOfMatch" class="form-control" name="dateOfMatch"/>
             </div>
             <div class="mb-3">
               <label class="form-label">Your Number Phone<span class="text-danger">*</span></label>
-              <input  type="text" class="form-control" name="numberPhone"/>
+              <input type="text" [(ngModel)]="numberPhone" class="form-control" name="numberPhone"/>
             </div>
             <div class="mb-3">
               <label class="form-label">Choose your teams <span class="text-danger">*</span></label>
-              <select class="form-control" name="team">
-                <option value="1">select your team </option>
-                <option value=1>team1</option>
-                <option value=1>team2</option>
+              <select class="form-control" [(ngModel)]="selectedTeam1" *ngIf="teamList$ | async as teams" name="team">
+                <option *ngFor="let team of teams" [value]="team.id"> {{ team.teamName }} </option>
               </select>
             </div>
             <div class="mb-3">
               <label class="form-label">Choose the Opposing team <span class="text-danger">*</span></label>
-              <select class="form-control" name="team">
-                <option value="1">select Opposing team </option>
-                <option value=1>team1</option>
-                <option value=1>team2</option>
+              <select class="form-control" [(ngModel)]="selectedTeam2" *ngIf="teamList$ | async as teams" name="team">
+                <option *ngFor="let team of teams" [value]="team.id"> {{ team.teamName }} </option>
               </select>
             </div>
           </div>
