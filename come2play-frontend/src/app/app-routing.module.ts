@@ -12,6 +12,11 @@ import {ForCompleteTeamComponent} from "./components/reservation/for-complete-te
 import {
   ForNonCompleteTeamComponent
 } from "./components/reservation/for-non-complete-team/for-non-complete-team.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
+import {AdminGuard} from "./core/guards/admin.guard";
+import {ManagerGuard} from "./core/guards/stadium-manager.guard";
+import {StadeDetailsComponent} from "./components/stade/stade-details/stade-details.component";
+import {ManageReservationComponent} from "./components/reservation/manage-reservation/manage-reservation.component";
 const routes: Routes = [
   { path:"login", component:LoginComponent},
   { path:"register", component:RegisterComponent},
@@ -23,13 +28,26 @@ const routes: Routes = [
       { path: "", component:LandingPageComponent},
       { path: "landingPage", component:LandingPageComponent},
       { path: "profile", component:ProfileComponent},
-      { path: "reservation", component:ReservationComponent},
+      { path: "reservation/:id", component:ReservationComponent},
       { path: "stadium", component:StadeComponent},
-      { path: "complete", component:ForCompleteTeamComponent},
-      { path: "nonComplete", component:ForNonCompleteTeamComponent},
+      { path: "complete/:id", component:ForCompleteTeamComponent},
+      { path: "nonComplete/:id", component:ForNonCompleteTeamComponent},
 
     ]
-  }
+  },
+
+
+  {
+    path:"dashboard",
+    canActivate:[ManagerGuard],
+    component:DashboardComponent,
+    children: [
+      { path: "", component: StadeDetailsComponent},
+      { path: "stadiumList", component: StadeDetailsComponent},
+      { path: "manageReservation", component: ManageReservationComponent}
+    ]
+  },
+
 ];
 
 @NgModule({

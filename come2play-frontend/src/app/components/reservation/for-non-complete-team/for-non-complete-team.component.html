@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12">
         <div class="alert alert-success" role="alert">
-          If You Already Have The Opposing Team <a routerLink="/reservation" class="alert-link"><strong>Skip</strong></a> This Step.
+          If You Already Have The Opposing Team <a routerLink="/reservation/{{stadiumId}}" class="alert-link"><strong>Skip</strong></a> This Step.
         </div>
         <form method="POST" (ngSubmit)="submitTeam()" enctype="multipart/form-data">
           <div class="modal-body">
@@ -26,7 +26,7 @@
             </div>
           </div>
           <div class="mt-5">
-            <a routerLink="/reservation" class="btn btn-white ">Skip</a>
+            <a routerLink="/reservation/{{stadiumId}}" class="btn btn-white ">Skip</a>
             <button type="submit" name="save" class="btn btn-primary float-end">Save</button>
           </div>
         </form>

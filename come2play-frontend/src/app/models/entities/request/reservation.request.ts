@@ -4,6 +4,8 @@ export class ReservationRequestClass {
   numberPhone?: string;
   team1?: number;
   team2?: number;
+  stadiumId?: number;
+
 }
 export interface IReservationRequest{
   id?: number;
@@ -11,6 +13,7 @@ export interface IReservationRequest{
   numberPhone?: string;
   team1?: number;
   team2?: number;
+  stadiumId?: number;
 }
 
 

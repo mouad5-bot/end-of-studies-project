@@ -1,5 +1,6 @@
 package com.youcode.come2play.dtos.dto.request;
 
+import com.youcode.come2play.entities.Stadium;
 import lombok.Data;
 
 import javax.validation.constraints.Future;
@@ -18,4 +19,8 @@ public class ReservationDto {
 
     private Long team1;
     private Long team2;
+
+    @NotNull(message = "Stadium should be not null !!")
+    private Long stadiumId;
+
 }
