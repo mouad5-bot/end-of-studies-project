@@ -27,7 +27,6 @@ public class StadiumMapper {
                 .price(stadium.getPrice())
                 .stadeName(stadium.getStadeName())
                 .teamType(stadium.getTeamType())
-                .reservationList(stadium.getReservationList())
                 .StadiumImage(stadiumImage)
                 .build();
     }

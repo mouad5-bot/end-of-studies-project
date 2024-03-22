@@ -1,5 +1,6 @@
 package com.youcode.come2play.web.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.youcode.come2play.dtos.dto.response.MyTeamResponseDto;
 import com.youcode.come2play.dtos.dto.response.TeamResponseDto;
 import com.youcode.come2play.dtos.mapper.TeamMapper;
 import com.youcode.come2play.entities.Team;
@@ -51,10 +52,14 @@ public class TeamResource {
     }
 
     @GetMapping("/myTeams")
-    public ResponseEntity<List<Team>> getMyTeams() {
-            Long loggedInUser = userAppService.getCurrentUser().getId();
-            List<Team> teamList = service.findByCreatedBy(loggedInUser);
-        return ResponseEntity.ok(teamList);
+    public ResponseEntity<List<MyTeamResponseDto>> getMyTeams() {
+        Long loggedInUser = userAppService.getCurrentUser().getId();
+        List<Team> teamList = service.findByCreatedBy(loggedInUser);
+        return ResponseEntity.ok(
+                teamList.stream()
+                        .map(MyTeamResponseDto::toDto)
+                        .toList()
+        );
     }
 
     @DeleteMapping("/{id}")

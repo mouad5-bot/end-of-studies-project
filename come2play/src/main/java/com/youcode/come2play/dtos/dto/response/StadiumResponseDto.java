@@ -31,6 +31,4 @@ public class StadiumResponseDto {
 
     @NotNull(message = "price must be not null")
     private double price;
-
-    private List<Reservation> reservationList;
 }
