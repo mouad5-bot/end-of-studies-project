@@ -5,7 +5,7 @@ import {authUtils} from "../../authUtils";
 
 
 @Injectable({ providedIn: 'root' })
-export class ManagerGuard implements CanActivate {
+export class PlayerGuard implements CanActivate {
   constructor(
     private router: Router,
     private authenticationService: AuthService

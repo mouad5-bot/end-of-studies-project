@@ -23,6 +23,9 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { StadeComponent } from './components/stade/stade.component';
 import { ForCompleteTeamComponent } from './components/reservation/for-complete-team/for-complete-team.component';
 import { ForNonCompleteTeamComponent } from './components/reservation/for-non-complete-team/for-non-complete-team.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ManageReservationComponent } from './components/reservation/manage-reservation/manage-reservation.component';
+import {StadeDetailsComponent} from "./components/stade/stade-details/stade-details.component";
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { ForNonCompleteTeamComponent } from './components/reservation/for-non-co
     StadeComponent,
     ForCompleteTeamComponent,
     ForNonCompleteTeamComponent,
+    DashboardComponent,
+    ManageReservationComponent,
+    StadeDetailsComponent
   ],
   imports: [
     BrowserModule,

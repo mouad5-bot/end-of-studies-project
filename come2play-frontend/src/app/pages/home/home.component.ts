@@ -32,4 +32,11 @@ export class HomeComponent implements OnInit{
     authUtils.logout();
     this.router.navigate(['/login']);
   };
+
+  isManager() {
+    if (this.user === undefined || this.user?.authorities === undefined)
+      return false;
+    return this.user.authorities.includes("ROLE_STADIUM_MANAGER");
+
+  }
 }

@@ -33,7 +33,13 @@ export class AuthService {
               this.me(response.accessToken).subscribe({
                 next: (user: UserClass) => {
                   authUtils.setLoggedCredentials(user, response);
-                  this.router.navigate(['']);
+
+                  if (authUtils.hasRole("ROLE_PLAYER"))
+                    this.router.navigate(['']);
+                  else if (authUtils.hasRole("ROLE_STADIUM_MANAGER"))
+                    this.router.navigate(['/dashboard']);
+                  else if (authUtils.hasRole("ROLE_ADMIN"))
+                    this.router.navigate(['/dashboard']);
                 }
               });
             }

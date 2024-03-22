@@ -15,7 +15,6 @@ export class StadeComponent implements OnInit{
 
   ngOnInit(){
     this.getAllStadiums();
-    console.log(this.stadiumList)
   }
 
   getAllStadiums(){

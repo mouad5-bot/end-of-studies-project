@@ -33,9 +33,7 @@ export class LoginComponent implements OnInit{
     if (val.email && val.password) {
       this.authService.login(val.email, val.password)
         .subscribe(
-          () => {
-            console.log("User is logged in");
-          }
+          () => {}
         );
     }
   }

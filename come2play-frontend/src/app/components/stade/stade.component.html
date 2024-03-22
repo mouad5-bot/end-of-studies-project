@@ -9,7 +9,7 @@
           <h5 class="card-title">{{ stadium.stadeName }}</h5>
           <p class="card-text">{{ stadium.price }} $</p>
           <p class="card-text">{{ stadium.teamType }}</p>
-            <a routerLink="/complete" class="btn btn-success border-dark "> Reserve </a>
+            <a routerLink="/complete/{{stadium.id}}" class="btn btn-success border-dark "> Reserve </a>
             <a routerLink="/nonComplete" class="btn btn-light float-end "> Details </a>
         </div>
       </div>

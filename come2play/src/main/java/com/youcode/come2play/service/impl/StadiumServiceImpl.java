@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class StadiumServiceImpl implements StadiumService {
@@ -35,5 +37,10 @@ public class StadiumServiceImpl implements StadiumService {
     @Override
     public List<Stadium> findAll(Pageable pageable) {
         return repository.findAll(pageable).toList();
+    }
+
+    @Override
+    public Optional<Stadium> findById(Long id) {
+        return repository.findById(id);
     }
 }
