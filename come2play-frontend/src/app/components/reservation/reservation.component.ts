@@ -56,6 +56,7 @@ export class ReservationComponent implements OnInit{
     this.reservationService.addReservation(this.addReservation).subscribe(
       (reservation) => {
         alert("Reservation added successfully!")
+        this.router.navigate(['/landingPage']);
       },
       (error) => {
         alert("An error occurred")

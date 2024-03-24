@@ -2,12 +2,15 @@ package com.youcode.come2play.web.rest;
 
 import com.youcode.come2play.dtos.dto.request.ReservationDto;
 import com.youcode.come2play.dtos.dto.request.ReservationRequestDto;
+import com.youcode.come2play.dtos.dto.response.MyTeamResponseDto;
+import com.youcode.come2play.dtos.dto.response.ReservationResponseDto;
 import com.youcode.come2play.entities.Reservation;
 import com.youcode.come2play.entities.Team;
 import com.youcode.come2play.entities.enums.RequestForTeam;
 import com.youcode.come2play.entities.enums.Status;
 import com.youcode.come2play.service.ReservationService;
 import com.youcode.come2play.service.TeamService;
+import com.youcode.come2play.web.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +46,26 @@ public class ReservationResource {
     }
 
     @GetMapping("/getAll")
-    public List<Reservation> getAll(Pageable pageable) {
+    public List<ReservationResponseDto> getAll(Pageable pageable) {
         return service.findAll(pageable);
     }
+
+    @PostMapping("/{id}/approved")
+    public ResponseEntity<?> approve(@PathVariable Long id) throws ResourceNotFoundException {
+        service.approve(id);
+        return ResponseEntity.ok().build();
+    }
+
+//    @GetMapping("/myReservation")
+//    public ResponseEntity<List<MyReservationResponseDto>> getMyReservations() {
+//        Long loggedInUser = userAppService.getCurrentUser().getId();
+//        List<Reservation> reservationList = service.findByCreatedBy(loggedInUser);
+//        return ResponseEntity.ok(
+//                reservationList.stream()
+//                        .map(MyReservationResponseDto::toDto)
+//                        .toList()
+//        );
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) throws Exception {

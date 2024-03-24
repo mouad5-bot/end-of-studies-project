@@ -1,7 +1,9 @@
 package com.youcode.come2play.service.impl;
 
 import com.youcode.come2play.dtos.dto.request.ReservationDto;
+import com.youcode.come2play.dtos.dto.response.ReservationResponseDto;
 import com.youcode.come2play.dtos.mapper.ReservationMapper;
+import com.youcode.come2play.dtos.mapper.ReservationResponseMapper;
 import com.youcode.come2play.entities.Reservation;
 import com.youcode.come2play.entities.Stadium;
 import com.youcode.come2play.entities.Team;
@@ -11,8 +13,10 @@ import com.youcode.come2play.repository.ReservationRepository;
 import com.youcode.come2play.service.ReservationService;
 import com.youcode.come2play.service.StadiumService;
 import com.youcode.come2play.service.TeamService;
+import com.youcode.come2play.web.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -26,16 +30,25 @@ public class ReservationServiceImpl implements ReservationService {
     private final TeamService teamService;
     private final ReservationMapper reservationMapper;
     private final StadiumService stadiumService;
+
+
     @Override
     public ReservationDto save(ReservationDto reservationDto) throws Exception {
-        Optional<Team> optionalTeam1 = teamService.findById(reservationDto.getTeam1());
-        Team team1 = optionalTeam1.orElse(null);
+        Team team1 = null;
+        Team team2 = null;
 
-        Optional<Team> optionalTeam2 = teamService.findById(reservationDto.getTeam2());
-        Team team2 = optionalTeam2.orElse(null);
+        if (reservationDto.getTeam1() != null) {
+            Optional<Team> optionalTeam1 = teamService.findById(reservationDto.getTeam1());
+            team1 = optionalTeam1.orElse(null);
+        }
+
+        if (reservationDto.getTeam2() != null) {
+            Optional<Team> optionalTeam2 = teamService.findById(reservationDto.getTeam2());
+            team2 = optionalTeam2.orElse(null);
+        }
 
         Long stadiumId = reservationDto.getStadiumId();
-        Optional<Stadium> stadium =  stadiumService.findById(stadiumId);
+        Optional<Stadium> stadium = stadiumService.findById(stadiumId);
         Stadium stadium1 = stadium.orElse(null);
 
         Reservation reservation = reservationMapper.toEntity(reservationDto);
@@ -45,14 +58,24 @@ public class ReservationServiceImpl implements ReservationService {
         reservation.setStatus(Status.PENDING);
         reservation.setStadiumId(stadium1);
 
-        if (optionalTeam1.isPresent() && optionalTeam2.isPresent())
+        if (team1 != null && team2 != null) {
             reservation.setRequestForTeam(RequestForTeam.ACCEPTED);
-        else
+        } else {
             reservation.setRequestForTeam(RequestForTeam.PENDING);
+        }
+
+        validateNumberPhone(reservation.getNumberPhone());
+        validateDateOfMatch(reservation.getDateOfMatch());
 
         repository.save(reservation);
 
         return reservationDto;
+    }
+
+    private void validateNumberPhone(String numberPhone) {
+    }
+
+    private void validateDateOfMatch(LocalDateTime dateOfMatch) {
     }
 
     @Override
@@ -66,7 +89,29 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<Reservation> findAll(Pageable pageable) {
-        return repository.findAll(pageable).toList();
+    public List<ReservationResponseDto> findAll(Pageable pageable) {
+        return repository.findAll(pageable)
+                        .stream()
+                                .map( ReservationResponseMapper::toDto )
+                                .toList();
+    }
+
+    @Override
+    public Optional<Reservation> findById(Long id) {
+        return repository.findById(id);
+    }
+
+    @Override
+    public void approve(Long id) throws ResourceNotFoundException {
+        Reservation reservation = findById(id).orElseThrow( () -> new ResourceNotFoundException("reservation not found"));
+
+        Status status = reservation.getStatus();
+
+       if (status  != Status.PENDING) {
+           throw new IllegalArgumentException("status is not pending !");
+        }
+
+        reservation.setStatus(Status.ACCEPTED);
+        repository.save(reservation);
     }
 }

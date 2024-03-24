@@ -1,0 +1,64 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card m-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mt-3">
+            <div class='h3'>
+              <u>All Reservations :</u>
+            </div>
+          </div>
+          <hr class="mb-3" />
+          <div class="table-responsive">
+            <table class="table mt-5 mb-3" id="myTable">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Match Date</th>
+                <th scope="col">Stadium Name </th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Status</th>
+                <th scope="col">Team Status</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor=" let reservation of reservationList" id="idhere">
+                <th scope="row"> {{reservation.id}} </th>
+                <td> {{reservation.dateOfMatch}} </td>
+                <td> {{reservation.stadiumName}} </td>
+                <td> {{reservation.numberPhone}} </td>
+                <td> <span class="badge badge-pill badgePrimary"> {{reservation.status}} </span> </td>
+                <td> <span class="badge badge-pill badgeRequestStatus"> {{reservation.requestForTeam}} </span> </td>
+                <td class="d-flex justify-content-center">
+                  <div class="">
+                      <button type="submit"
+                              *ngIf="reservation.status == 'PENDING'"
+                              (click)="approveReservation(reservation.id)"
+                              class="btn btn-outline-warning border border-light"> <i class="bi bi-check-lg"></i> Approve
+                      </button>
+                  </div>
+                  <div class="me-3">
+                    <form>
+                      <button type="submit" class="btn btn-outline-danger border border-light"> <i class="bi bi-trash"></i> Delete</button>
+                    </form>
+                  </div>
+<!--                  <div>-->
+<!--                    <button class="btn btn-outline-info border border-light"> <i class="bi bi-eye"></i> Show</button>-->
+<!--                  </div>-->
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <mat-paginator
+              [length]="10"
+              [pageSize]="pageSize"
+              (page)="onPageChange($event)"
+            ></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

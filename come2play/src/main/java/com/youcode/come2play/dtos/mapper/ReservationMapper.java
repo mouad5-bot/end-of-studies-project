@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ReservationMapper {
-    public Reservation toEntity(ReservationDto requestDto) {
+    public Reservation toEntity(ReservationDto responseDto) {
 
         return Reservation.builder()
-                .dateOfMatch(requestDto.getDateOfMatch())
-                .numberPhone(requestDto.getNumberPhone())
+                .dateOfMatch(responseDto.getDateOfMatch())
+                .numberPhone(responseDto.getNumberPhone())
                 .build();
     }
 //    public ReservationRequestDto toDto(Reservation reservation) {
