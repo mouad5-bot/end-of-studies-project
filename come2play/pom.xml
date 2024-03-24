@@ -19,7 +19,7 @@
         <liquibase.version>4.24.0</liquibase.version>
         <spring-boot.version>2.7.17</spring-boot.version>
         <validation-api.version>3.0.2</validation-api.version>
-        <liquibase-plugin.url>jdbc:postgresql://localhost:5432/footV2</liquibase-plugin.url>
+        <liquibase-plugin.url>jdbc:postgresql://localhost:5432/foot</liquibase-plugin.url>
         <liquibase-plugin.username>postgres</liquibase-plugin.username>
         <liquibase-plugin.password>root</liquibase-plugin.password>
         <properties-maven-plugin.version>1.2.1</properties-maven-plugin.version>
@@ -118,11 +118,11 @@
             <version>2.4.4</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.sonarsource.scanner.maven</groupId>
-            <artifactId>sonar-maven-plugin</artifactId>
-            <version>${sonar-maven-plugin.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.sonarsource.scanner.maven</groupId>-->
+<!--            <artifactId>sonar-maven-plugin</artifactId>-->
+<!--            <version>${sonar-maven-plugin.version}</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 
@@ -206,11 +206,11 @@
                 </executions>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>org.sonarsource.scanner.maven</groupId>-->
-<!--                <artifactId>sonar-maven-plugin</artifactId>-->
-<!--                <version>${sonar-maven-plugin.version}</version>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin.version}</version>
+            </plugin>
 
 
 <!--            <plugin>-->

@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-md navbar-light shadow-sm ">
+  <div class="container">
+    <a class="navbar-brand mt-2" href="#">
+      <img src="assets/logo-rb.png" style="width: 8rem">
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            (click)="toggleNavbar()"
+            aria-controls="navbarSupportedContent" aria-expanded="false" [attr.aria-label]="ariaLabel">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-md-center"  [class.show]="!isNavbarCollapsed" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto ms-auto">
+        <li class="nav-item me-4">
+          <a class="nav-link" routerLink="/dashboard">
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" routerLink="/landingPage">
+            Home
+          </a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" routerLink="/">
+            Matches
+          </a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" routerLink="/stadium">
+            Stadiums
+          </a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" routerLink="/profile">
+            Profile
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a routerLink="/logout" class="nav-link" (click)="logout()">
+            <span class="pcoded-micon"> <i class="bi bi-box-arrow-right"></i> </span>
+            <span class="pcoded-mtext">Log Out</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav" *ngIf="!user">
+        <li class="nav-item" >
+          <a class="btn btn-light text-black" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item" >
+          <a class="btn btn-dark text-white" routerLink="register" >Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- dashboard -->
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- sidebar -->
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column text-dark">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/dashboard">
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard/manageStadiums">
+              Manage Stadium
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard/manageReservation">
+              Manage Reservations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/settings">
+              Settings
+            </a>
+          </li>
+          <!-- Add more sidebar items as needed -->
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <!-- Your dashboard content goes here -->
+      <router-outlet></router-outlet> <!-- This is where your dashboard content will be loaded -->
+    </main>
+  </div>
+</div>
+

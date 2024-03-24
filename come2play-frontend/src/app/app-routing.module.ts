@@ -32,7 +32,6 @@ const routes: Routes = [
       { path: "stadium", component:StadeComponent},
       { path: "complete/:id", component:ForCompleteTeamComponent},
       { path: "nonComplete/:id", component:ForNonCompleteTeamComponent},
-
     ]
   },
 
@@ -43,7 +42,7 @@ const routes: Routes = [
     component:DashboardComponent,
     children: [
       { path: "", component: StadeDetailsComponent},
-      { path: "stadiumList", component: StadeDetailsComponent},
+      { path: "manageStadiums", component: StadeDetailsComponent},
       { path: "manageReservation", component: ManageReservationComponent}
     ]
   },
