@@ -1,36 +1,36 @@
-<div class="modal-header mt-3 mb-2">
-  <h1 class="modal-title">Add Your Team</h1>
-</div>
-<div class="card ">
-  <div class="card-body d-flex justify-content-center">
-    <div class="row">
-      <div class="col-12">
-        <div class="alert alert-success" role="alert">
-          If You Already Have A Team <a routerLink="/nonComplete/{{stadiumId}}" class="alert-link"><strong>Skip</strong></a> This Step.
+  <div class="modal-header mt-3 mb-2">
+    <h1 class="modal-title m-auto">Add Your Team</h1>
+  </div>
+  <div class="card col-md-6 m-auto">
+    <div class="card-body d-flex justify-content-center">
+      <div class="row">
+        <div class="col-12">
+          <div class="alert alert-success" role="alert">
+            If You Already Have A Team <a routerLink="/nonComplete/{{stadiumId}}" class="alert-link"><strong>Skip</strong></a> This Step.
+          </div>
+          <form method="POST" (ngSubmit)="submitTeam()" enctype="multipart/form-data">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label class="form-label">name of your team <span class="text-danger">*</span></label>
+                <input  type="text" class="form-control" name="teamName" [(ngModel)]="addTeam.teamName"/>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Team Type <span class="text-danger">*</span></label>
+                <select class="form-control" [(ngModel)]="selectedType" name="teamType">
+                  <option *ngFor="let type of types" [value]="type" > {{ type }} </option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">image <span class="text-danger">*</span></label>
+                <input type="file" class="form-control" formControlName="file" (change)="saveImage($event)" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+              </div>
+            </div>
+            <div class="mt-5">
+              <a routerLink="/nonComplete/{{stadiumId}}" class="btn btn-white ">Skip</a>
+              <button type="submit" name="save" class="btn btn-primary float-end">Save</button>
+            </div>
+          </form>
         </div>
-        <form method="POST" (ngSubmit)="submitTeam()" enctype="multipart/form-data">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label">name of your team <span class="text-danger">*</span></label>
-              <input  type="text" class="form-control" name="teamName" [(ngModel)]="addTeam.teamName"/>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Team Type <span class="text-danger">*</span></label>
-              <select class="form-control" [(ngModel)]="selectedType" name="teamType">
-                <option *ngFor="let type of types" [value]="type" > {{ type }} </option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">image <span class="text-danger">*</span></label>
-              <input type="file" class="form-control" formControlName="file" (change)="saveImage($event)" name="image" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-            </div>
-          </div>
-          <div class="mt-5">
-            <a routerLink="/nonComplete/{{stadiumId}}" class="btn btn-white ">Skip</a>
-            <button type="submit" name="save" class="btn btn-primary float-end">Save</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
-</div>

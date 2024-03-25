@@ -214,7 +214,7 @@ button:hover i, button:focus i, button:active i {
 #loginInRegister{
   all: unset;
   color: blue;
-  font-size: 20px;
+  font-size: 16px;
   margin-left: 2rem;
 }
 .button1 {

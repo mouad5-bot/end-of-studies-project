@@ -60,6 +60,11 @@ public class ReservationServiceImpl implements ReservationService {
 
         if (team1 != null && team2 != null) {
             reservation.setRequestForTeam(RequestForTeam.ACCEPTED);
+
+            if ( team1.getTeamType() != team2.getTeamType()){
+                throw new IllegalArgumentException("team type must be same. e.g 7v7 ");
+            }
+            //if (team1.getUserList().stream());
         } else {
             reservation.setRequestForTeam(RequestForTeam.PENDING);
         }
@@ -72,10 +77,17 @@ public class ReservationServiceImpl implements ReservationService {
         return reservationDto;
     }
 
-    private void validateNumberPhone(String numberPhone) {
+    void validateNumberPhone(String numberPhone) {
+        if (numberPhone.length() < 9 || numberPhone.length() > 13) {
+            throw new IllegalArgumentException("Phone number must be between 9 and 10 characters.");
+        }
     }
 
-    private void validateDateOfMatch(LocalDateTime dateOfMatch) {
+     void validateDateOfMatch(LocalDateTime dateOfMatch) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        if (dateOfMatch.isBefore(currentDateTime)) {
+            throw new IllegalArgumentException("Date of match must not be in the past.");
+        }
     }
 
     @Override
@@ -85,7 +97,8 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void delete(Long id) throws Exception {
-
+        Reservation reservation = findById(id).orElseThrow(() -> new ResourceNotFoundException("reservation not found !"));
+        repository.delete(reservation);
     }
 
     @Override
@@ -107,11 +120,10 @@ public class ReservationServiceImpl implements ReservationService {
 
         Status status = reservation.getStatus();
 
-       if (status  != Status.PENDING) {
+       if (status  != Status.PENDING)
            throw new IllegalArgumentException("status is not pending !");
-        }
 
-        reservation.setStatus(Status.ACCEPTED);
-        repository.save(reservation);
+       reservation.setStatus(Status.ACCEPTED);
+       repository.save(reservation);
     }
 }

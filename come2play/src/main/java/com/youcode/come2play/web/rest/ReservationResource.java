@@ -67,7 +67,7 @@ public class ReservationResource {
 //        );
 //    }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/delete")
     public ResponseEntity<?> delete(@PathVariable Long id) throws Exception {
         service.delete(id);
         return ResponseEntity.ok("The reservation is deleted successfully");
