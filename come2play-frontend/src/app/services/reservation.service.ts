@@ -35,4 +35,8 @@ export class ReservationService {
   approveReservation(id: number) {
     return this.http.post<void>(`${this.apiUrl}${id}/approved`, {});
   }
+
+  delete(id: number | undefined) {
+    return this.http.delete(`${this.apiUrl}${id}/delete`, {})
+  }
 }

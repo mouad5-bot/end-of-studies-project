@@ -1,1 +1,58 @@
-<p>stade details</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card m-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between mt-3">
+            <div class='h3'>
+              <u>All Stadiums :</u>
+            </div>
+          </div>
+          <hr class="" />
+          <div class="table-responsive">
+            <table class="table mt-5 mb-3" id="myTable">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Type </th>
+                <th scope="col">Price</th>
+                <th scope="col">City</th>
+                <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor=" let stadium of stadiumList" id="idhere">
+                <th scope="row"> {{stadium.id}} </th>
+                <td> {{stadium.stadeName}} </td>
+                <td> {{stadium.teamType}} </td>
+                <td> {{stadium.price}} MAD</td>
+                <td> {{stadium.city}} </td>
+                <td class="d-flex justify-content-center">
+                  <div>
+                    <button class="btn btn-outline-warning border border-light"> <i class="bi bi-pencil"></i> Edit</button>
+                  </div>
+                  <div>
+                    <button class="btn btn-outline-info border border-light"> <i class="bi bi-eye"></i> Show</button>
+                  </div>
+                  <div class="me-3">
+                    <button type="submit"
+                            class="btn btn-outline-danger border border-light">
+                      <i class="bi bi-trash"></i> Delete</button>
+                  </div>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <mat-paginator
+              [length]="10"
+              [pageSize]="pageSize"
+              (page)="onPageChange($event)"
+            ></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

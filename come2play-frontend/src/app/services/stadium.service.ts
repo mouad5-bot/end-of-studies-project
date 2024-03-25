@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../models/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {map, Observable} from "rxjs";
 import {IStadium, StadiumClass} from "../models/entities/stadium";
+import {IReservationResponse} from "../models/entities/response/reservation.response";
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,14 @@ export class StadiumService {
         });
       })
     );
+  }
+  public getPaginatedStadiums(page: number, size: number): Observable<IStadium[]> {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+
+    return this.http
+      .get<IStadium[]>(this.apiUrl + "getAll",{params} );
   }
 
   public addStadium(stadium: StadiumClass): Observable<IStadium>{

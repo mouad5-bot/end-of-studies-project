@@ -9,7 +9,7 @@
               <u>All Reservations :</u>
             </div>
           </div>
-          <hr class="mb-3" />
+          <hr class="" />
           <div class="table-responsive">
             <table class="table mt-5 mb-3" id="myTable">
               <thead>
@@ -41,7 +41,10 @@
                   </div>
                   <div class="me-3">
                     <form>
-                      <button type="submit" class="btn btn-outline-danger border border-light"> <i class="bi bi-trash"></i> Delete</button>
+                      <button type="submit"
+                              (click)="delete(reservation.id)"
+                              class="btn btn-outline-danger border border-light">
+                        <i class="bi bi-trash"></i> Delete</button>
                     </form>
                   </div>
 <!--                  <div>-->

@@ -215,7 +215,8 @@ button:hover i, button:focus i, button:active i {
   all: unset;
   color: blue;
   font-size: 20px;
-  margin-left: 2rem;
+
+
 }
 .button1 {
   background-color: #04AA6D;
