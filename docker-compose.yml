@@ -15,7 +15,7 @@ services:
       context: ./come2play
       dockerfile: Dockerfile
     ports:
-      - "8888:8888"
+      - "8088:8088"
     depends_on:
       - postgres
     environment:
@@ -28,7 +28,7 @@ services:
       context: ./come2play-frontend
       dockerfile: Dockerfile
     ports:
-      - "4200:88"
+      - "4200:80"
     depends_on:
       - spring-application-back
 

@@ -16,4 +16,4 @@ FROM nginx:latest
 
 COPY --from=build /app/dist/come2play-frontend /usr/share/nginx/html
 
-EXPOSE 8888
+EXPOSE 80

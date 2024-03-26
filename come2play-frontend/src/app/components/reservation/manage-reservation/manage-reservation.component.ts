@@ -3,6 +3,7 @@ import {ReservationService} from "../../../services/reservation.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {PageEvent} from "@angular/material/paginator";
 import {IReservationResponse} from "../../../models/entities/response/reservation.response";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-manage-reservation',
@@ -12,9 +13,9 @@ import {IReservationResponse} from "../../../models/entities/response/reservatio
 export class ManageReservationComponent implements OnInit{
   reservationList!: IReservationResponse[];
   currentPage: number = 0;
-  pageSize:number = 2;
+  pageSize:number = 3;
 
-  constructor(private reservationService: ReservationService) {
+  constructor(private reservationService: ReservationService, private router:Router) {
   }
 
   approveReservation(id?: number){
@@ -58,4 +59,15 @@ export class ManageReservationComponent implements OnInit{
     this.getAllReservations();
   }
 
+  delete(id: number | undefined) {
+    this.reservationService.delete(id).subscribe(
+      () => {
+        alert("reservation deleted successfully!");
+        this.router.navigate(['dashboard/manageReservation'])
+      },
+      (error) => {
+        alert("error deleting reservation !!");
+      }
+    );
+  }
 }
